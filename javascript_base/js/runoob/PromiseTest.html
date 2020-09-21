@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+</head>
+
+
+
+<body>
+
+<script>
+    /**
+     * 回答常见的问题（FAQ）
+     Q: then、catch 和 finally 序列能否顺序颠倒？
+     A: 可以，效果完全一样。但不建议这样做，最好按 then-catch-finally 的顺序编写程序。
+     Q: 除了 then 块以外，其它两种块能否多次使用？
+     A: 可以，finally 与 then 一样会按顺序执行，但是 catch 块只会执行第一个，除非 catch 块里有异常。所以最好只安排一个 catch 和 finally 块。
+     Q: then 块如何中断？
+     A: then 块默认会向下顺序执行，return 是不能中断的，可以通过 throw 来跳转至 catch 实现中断。
+     Q: 什么时候适合用 Promise 而不是传统回调函数？
+     A: 当需要多次顺序执行异步操作的时候，例如，如果想通过异步方法先后检测用户名和密码，需要先异步检测用户名，然后再异步检测密码的情况下就很适合 Promise。
+     Q: Promise 是一种将异步转换为同步的方法吗？
+     A: 完全不是。Promise 只不过是一种更良好的编程风格。
+     Q: 什么时候我们需要再写一个 then 而不是在当前的 then 接着编程？
+     A: 当你又需要调用一个异步任务的时候。
+     *
+     * /
+
+    /**
+     * 这段程序会直接输出 Run。
+     * resolve 和 reject 都是函数，其中调用 resolve 代表一切正常，reject 是出现异常时所调用的：
+     */
+    new Promise(function (resolve, reject) {
+        var a = 0;
+        var b = 1;
+        if (b == 0) reject("Diveide zero");
+        else resolve(a / b);
+    }).then(function (value) {
+        console.log("a / b = " + value);
+    }).catch(function (err) {
+        console.log(err);
+    }).finally(function () {
+        console.log("End");
+    });
+
+    /**
+     * 函数返回Promise对象
+     * @param delay
+     * @param message
+     * @returns {Promise<unknown>}
+     */
+    function print(delay, message) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                console.log(message);
+                resolve();
+            }, delay);
+        });
+    }
+
+    print(1000, "First").then(function () {
+        return print(4000, "Second");
+    }).then(function () {
+        print(3000, "Third");
+    });
+
+
+    /**
+     * 异步函数写法
+     * @returns {Promise<void>}
+     */
+    async function asyncFunc() {
+        await print(1000, "First");
+        await print(4000, "Second");
+        await print(3000, "Third");
+    }
+    asyncFunc();
+</script>
+
+</body>
+
+
+</html>
