@@ -395,7 +395,7 @@
    - 移动： `translate`
    - 旋转： `rotate`
    - 缩放： `scale`
-
+   
 2.  `translate` 语法
 
    - x 就是 x 轴上水平移动

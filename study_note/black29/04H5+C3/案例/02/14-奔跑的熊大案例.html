@@ -17,7 +17,7 @@
             height: 100px;
             background: url(media/bear.png) no-repeat;
             /* 我们元素可以添加多个动画， 用逗号分隔 */
-            animation: bear .4s steps(8) infinite, move 3s forwards;
+            animation: bear .4s steps(8) infinite, move 3s infinite alternate;
         }
         
         @keyframes bear {
@@ -36,7 +36,7 @@
             100% {
                 left: 50%;
                 /* margin-left: -100px; */
-                transform: translateX(-50%);
+                /* transform: translateX(-50%); */
             }
         }
     </style>
