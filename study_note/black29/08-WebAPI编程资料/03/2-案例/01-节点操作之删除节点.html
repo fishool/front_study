@@ -27,6 +27,9 @@
                 this.disabled = true;
             } else {
                 ul.removeChild(ul.children[0]);
+                if(ul.children.length == 0) {
+                    this.disabled = true;
+                }
             }
         }
     </script>
