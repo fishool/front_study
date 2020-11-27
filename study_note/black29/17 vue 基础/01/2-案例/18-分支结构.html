@@ -13,6 +13,8 @@
     <div v-else>比较差</div>
     <div v-show='flag'>测试v-show</div>
     <button v-on:click='handle'>点击</button>
+    <div v-if='showSwitch'>测试22222</div>
+    <button @click="shichao">测试22222</button>
   </div>
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript">
@@ -25,11 +27,15 @@
       el: '#app',
       data: {
         score: 10,
-        flag: false
+        flag: false,
+        showSwitch: false
       },
       methods: {
         handle: function(){
           this.flag = !this.flag;
+        },
+        shichao: function() {
+          this.showSwitch = !this.showSwitch;
         }
       }
     });
