@@ -38,24 +38,40 @@
         <input type="password" name="" id="pwd">
     </div>
     <script>
-        // 1. 获取元素
-        var eye = document.getElementById('eye');
-        var pwd = document.getElementById('pwd');
-        // 2. 注册事件 处理程序
+        var eye = document.querySelector("#eye");
+        var pwd = document.querySelector("#pwd");
+
         var flag = 0;
         eye.onclick = function() {
-            // 点击一次之后， flag 一定要变化
-            if (flag == 0) {
+            if(flag == 0) {
                 pwd.type = 'text';
                 eye.src = 'images/open.png';
-                flag = 1; // 赋值操作
+                flag = 1;
             } else {
                 pwd.type = 'password';
                 eye.src = 'images/close.png';
                 flag = 0;
             }
-
         }
+
+        // // 1. 获取元素
+        // var eye = document.getElementById('eye');
+        // var pwd = document.getElementById('pwd');
+        // // 2. 注册事件 处理程序
+        // var flag = 0;
+        // eye.onclick = function() {
+        //     // 点击一次之后， flag 一定要变化
+        //     if (flag == 0) {
+        //         pwd.type = 'text';
+        //         eye.src = 'images/open.png';
+        //         flag = 1; // 赋值操作
+        //     } else {
+        //         pwd.type = 'password';
+        //         eye.src = 'images/close.png';
+        //         flag = 0;
+        //     }
+
+        // }
     </script>
 </body>
 
