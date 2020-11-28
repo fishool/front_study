@@ -6,7 +6,7 @@
 </head>
 <body>
   <div id="app">
-    <input type="text" v-color='msg'>
+    <input type="text" v-color='msg' v-model='msg.color' @change='changeColor'>
   </div>
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript">
@@ -30,6 +30,9 @@
       methods: {
         handle: function(){
           
+        },
+        changeColor: function(event){
+          event.target.style.backgroundColor = this.msg.color;
         }
       }
     });

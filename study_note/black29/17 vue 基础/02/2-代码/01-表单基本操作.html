@@ -61,8 +61,25 @@
       <div>
         <input type="submit" value="提交" @click.prevent='handle'>
       </div>
+
+      
     </form>
+
+    <div>
+      <span>holyshit：</span>
+      <input type="text" v-model="holyshit">
+      <span>選擇愛好：</span>
+      <select name="love" id="love"  v-model="love" multiple>
+          <option value="l">l</option>
+          <option value="o">o</option>
+          <option value="v">v</option>
+          <option value="e">e</option>
+      </select>
+      <br>
+    </div>
   </div>
+
+  
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript">
     /*
@@ -76,7 +93,9 @@
         hobby: ['2','3'],
         // occupation: 3
         occupation: ['2','3'],
-        desc: 'nihao'
+        desc: 'nihao',
+        holyshit: '22',
+        love: ['l'],
       },
       methods: {
         handle: function(){
@@ -84,8 +103,9 @@
           // console.log(this.gender)
           // console.log(this.hobby.toString())
           // console.log(this.occupation)
-          console.log(this.desc)
-
+          // console.log(this.desc)
+          console.log(this.holyshit)
+          console.log(this.love.join(''))
         }
       }
     });
