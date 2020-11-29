@@ -20,6 +20,8 @@
     <div class="box" style="width: 200px;"></div>
     <script>
         // offset与style的区别
+        //1. offset 可以得到任意樣式表中的樣式值，style只能得到行內樣式表中的樣式值
+        //2. offset只讀 適合用於獲取大小位置， style可更改，更適合編輯樣式
         var box = document.querySelector('.box');
         console.log(box.offsetWidth);
         console.log(box.style.width);

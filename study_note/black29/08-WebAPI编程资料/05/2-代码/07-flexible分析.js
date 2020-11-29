@@ -27,6 +27,7 @@
 
     // reset rem unit on page resize  当我们页面尺寸大小发生变化的时候，要重新设置下rem 的大小
     window.addEventListener('resize', setRemUnit)
+        // load 加載事件 在有往返緩存的情況下 不會被觸發
         // pageshow 是我们重新加载页面触发的事件
     window.addEventListener('pageshow', function(e) {
         // e.persisted 返回的是true 就是说如果这个页面是从缓存取过来的页面，也需要从新计算一下rem 的大小

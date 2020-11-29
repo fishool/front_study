@@ -45,7 +45,7 @@
         // 当我们鼠标经过 sliderbar 就会让 con这个盒子滑动到左侧
         // 当我们鼠标离开 sliderbar 就会让 con这个盒子滑动到右侧
         sliderbar.addEventListener('mouseenter', function() {
-            // animate(obj, target, callback);
+            // animate(obj, target, callback); callback回調函數 函數對象作爲入參
             animate(con, -160, function() {
                 // 当我们动画执行完毕，就把 ← 改为 →
                 sliderbar.children[0].innerHTML = '→';

@@ -25,8 +25,13 @@
     <script>
         // scroll 系列
         var div = document.querySelector('div');
+        // 自身內容實際寬高 ，不含邊框，返回數值不帶單位
         console.log(div.scrollHeight);
         console.log(div.clientHeight);
+        // 滾動視圖窗口內容距離實際div內容頂部，和左邊的距離
+        console.log(div.scrollTop);
+        console.log(div.scrollLeft);
+
         // scroll滚动事件当我们滚动条发生变化会触发的事件
         div.addEventListener('scroll', function() {
             console.log(div.scrollTop);
