@@ -13,12 +13,16 @@
             background-color: pink;
         }
     </style>
+    // 引入fastclick
     <script src="fastclick.js"></script>
 </head>
 
 <body>
     <div></div>
     <script>
+        /**
+         *  解決手機端 click 300ms 延時問題
+         * */
         if ('addEventListener' in document) {
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body);
