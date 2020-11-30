@@ -16,24 +16,21 @@
 </head>
 
 <body>
-    <div></div>
+    <div>111</div>
     <script>
         // 1. 获取元素
         // 2. 手指触摸DOM元素事件
         var div = document.querySelector('div');
         div.addEventListener('touchstart', function() {
-            console.log('我摸了你');
-
+            div.innerText='我摸了你';
         });
         // 3. 手指在DOM元素身上移动事件
         div.addEventListener('touchmove', function() {
-            console.log('我继续摸');
-
+            div.innerText='继续触碰';
         });
         // 4. 手指离开DOM元素事件
         div.addEventListener('touchend', function() {
-            console.log('轻轻的我走了');
-
+            div.innerText='我走了';
         });
     </script>
 </body>
