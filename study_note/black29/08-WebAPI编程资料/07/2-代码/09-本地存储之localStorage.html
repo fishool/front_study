@@ -15,6 +15,11 @@
     <button class="remove">删除数据</button>
     <button class="del">清空所有数据</button>
     <script>
+        /**
+         * localstorage（本地存储）则以文件的方式存储在本地,永久保存（不主动删除，则一直存在）；
+         * sessionstorage( 会话存储 ) ,临时保存。
+         * 
+         **/
         var ipt = document.querySelector('input');
         var set = document.querySelector('.set');
         var get = document.querySelector('.get');
