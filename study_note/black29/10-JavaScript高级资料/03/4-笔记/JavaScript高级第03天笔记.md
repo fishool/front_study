@@ -16,7 +16,7 @@
    var fn = function(){}
    ```
 
-3. 方式3 new Function() 
+3. 方式3 new Function()
 
    ```js
    var f = new Function('a', 'b', 'console.log(a + b)');
@@ -26,7 +26,7 @@
    注意
    /*Function 里面参数都必须是字符串格式
    第三种方式执行效率低，也不方便书写，因此较少使用
-   所有函数都是 Function 的实例(对象)  
+   所有函数都是 Function 的实例(对象)
    函数也属于对象
    */
    ```
@@ -38,7 +38,7 @@
 function fn() {
 	console.log('人生的巅峰');
 }
- fn(); 
+ fn();
 /* 2. 对象的方法 */
 var o = {
   sayHi: function() {
@@ -75,7 +75,7 @@ setInterval(function() {}, 1000);  这个函数是定时器自动1秒钟调用�
 
 call()方法调用一个对象。简单理解为调用函数的方式，但是它可以改变函数的 this 指向
 
-应用场景:  经常做继承. 
+应用场景:  经常做继承.
 
 ```js
 var o = {
@@ -146,9 +146,9 @@ f();//调用新函数  this指向的是对象o 参数使用逗号隔开
 
 
 - 应用场景
-  1. call 经常做继承. 
+  1. call 经常做继承.
   2. apply经常跟数组有关系.  比如借助于数学对象实现数组最大值最小值
-  3. bind  不调用函数,但是还想改变this指向. 比如改变定时器内部的this指向. 
+  3. bind  不调用函数,但是还想改变this指向. 比如改变定时器内部的this指向.
 
 ## 3.严格模式
 
@@ -158,7 +158,7 @@ JavaScript 除了提供正常模式外，还提供了严格模式（strict mode�
 
 严格模式在 IE10 以上版本的浏览器中才会被支持，旧版本浏览器中会被忽略。
 
-严格模式对正常的 JavaScript 语义做了一些更改： 
+严格模式对正常的 JavaScript 语义做了一些更改：
 
 1.消除了 Javascript 语法的一些不合理、不严谨之处，减少了一些怪异行为。
 
@@ -184,7 +184,7 @@ JavaScript 除了提供正常模式外，还提供了严格模式（strict mode�
            var num = 10;
     　　　　function fn() {}
     })();
-    //或者 
+    //或者
     <script>
       　"use strict"; //当前script标签开启了严格模式
     </script>
@@ -201,7 +201,7 @@ JavaScript 除了提供正常模式外，还提供了严格模式（strict mode�
     function fn(){
     　　"use strict";
     　　return "123";
-    } 
+    }
     //当前fn函数开启了严格模式
     ```
 
@@ -211,7 +211,7 @@ JavaScript 除了提供正常模式外，还提供了严格模式（strict mode�
 
 ```js
 'use strict'
-num = 10 
+num = 10
 console.log(num)//严格模式后使用未声明的变量
 --------------------------------------------------------------------------------
 var num2 = 1;
@@ -220,7 +220,7 @@ delete num2;//严格模式不允许删除变量
 function fn() {
  console.log(this); // 严格模式下全局作用域中函数中的 this 是 undefined
 }
-fn();  
+fn();
 ---------------------------------------------------------------------------------
 function Star() {
 	 this.sex = '男';
@@ -231,7 +231,7 @@ console.log(ldh.sex);
 ----------------------------------------------------------------------------------
 setTimeout(function() {
   console.log(this); //严格模式下，定时器 this 还是指向 window
-}, 2000);  
+}, 2000);
 ```
 
 [更多严格模式要求参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)
@@ -260,7 +260,7 @@ setTimeout(function() {
 
 ### 5.2什么是闭包
 
-闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。 
+闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。
 
 ![](images/img3.png)
 
@@ -304,11 +304,12 @@ for (var i = 0; i < lis.length; i++) {
      setTimeout(function() {
      console.log(lis[i].innerHTML);
      }, 3000)
+     // 函数内 参数传递
    })(i);
 }
 ```
 
-3. 闭包应用-计算打车价格 
+3. 闭包应用-计算打车价格
 
 ```js
 /*需求分析
@@ -318,6 +319,8 @@ for (var i = 0; i < lis.length; i++) {
  var car = (function() {
      var start = 13; // 起步价  局部变量
      var total = 0; // 总价  局部变量
+
+     // 返回一个对象, 对象内包含两个数组
      return {
        // 正常的总价
        price: function(n) {
@@ -363,7 +366,7 @@ var name = "The Window";　　
   }
 };
 console.log(object.getNameFunc()())
-       
+
 ```
 
 ## 6.递归
@@ -442,7 +445,7 @@ console.log(fb(3));
        o = item;
        return o;
        // 2. 我们想要得里层的数据 11 12 可以利用递归函数
-       // 里面应该有goods这个数组并且数组的长度不为 0 
+       // 里面应该有goods这个数组并且数组的长度不为 0
      } else if (item.goods && item.goods.length > 0) {
        o = getID(item.goods, id);
      }

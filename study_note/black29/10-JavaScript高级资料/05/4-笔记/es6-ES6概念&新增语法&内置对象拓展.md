@@ -33,7 +33,7 @@ ES6中新增了用于声明变量的关键字
 #### let声明的变量只在所处于的块级有效
 
 ```javascript
- if (true) { 
+ if (true) {
      let a = 10;
  }
 console.log(a) // a is not defined
@@ -44,7 +44,7 @@ console.log(a) // a is not defined
 #### 不存在变量提升
 
 ```javascript
-console.log(a); // a is not defined 
+console.log(a); // a is not defined
 let a = 20;
 ```
 
@@ -54,10 +54,10 @@ let a = 20;
 
 ```javascript
  var tmp = 123;
- if (true) { 
+ if (true) {
      tmp = 'abc';
-     let tmp; 
- } 
+     let tmp;
+ }
 ```
 
 #### 经典面试题
@@ -66,7 +66,7 @@ let a = 20;
  var arr = [];
  for (var i = 0; i < 2; i++) {
      arr[i] = function () {
-         console.log(i); 
+         console.log(i);
      }
  }
  arr[0]();
@@ -82,7 +82,7 @@ let a = 20;
  let arr = [];
  for (let i = 0; i < 2; i++) {
      arr[i] = function () {
-         console.log(i); 
+         console.log(i);
      }
  }
  arr[0]();
@@ -110,7 +110,7 @@ let a = 20;
 #### 具有块级作用域
 
 ```javascript
- if (true) { 
+ if (true) {
      const a = 10;
  }
 console.log(a) // a is not defined
@@ -131,7 +131,7 @@ PI = 100; // Assignment to constant variable.
 const ary = [100, 200];
 ary[0] = 'a';
 ary[1] = 'b';
-console.log(ary); // ['a', 'b']; 
+console.log(ary); // ['a', 'b'];
 ary = ['a', 'b']; // Assignment to constant variable.
 ```
 
@@ -166,13 +166,13 @@ ES6中允许从数组中提取值，按照对应位置，对变量赋值，对�
 #### 对象解构
 
 ```javascript
- let person = { name: 'zhangsan', age: 20 }; 
+ let person = { name: 'zhangsan', age: 20 };
  let { name, age } = person;
- console.log(name); // 'zhangsan' 
+ console.log(name); // 'zhangsan'
  console.log(age); // 20
 
  let {name: myName, age: myAge} = person; // myName myAge 属于别名
- console.log(myName); // 'zhangsan' 
+ console.log(myName); // 'zhangsan'
  console.log(myAge); // 20
 
 ```
@@ -196,11 +196,11 @@ const fn = () => {}//代表把一个函数赋值给fn
 函数体中只有一句代码，且代码的执行结果就是返回值，可以省略大括号
 
 ```javascript
- function sum(num1, num2) { 
-     return num1 + num2; 
+ function sum(num1, num2) {
+     return num1 + num2;
  }
  //es6写法
- const sum = (num1, num2) => num1 + num2; 
+ const sum = (num1, num2) => num1 + num2;
 
 ```
 
@@ -209,7 +209,7 @@ const fn = () => {}//代表把一个函数赋值给fn
 ```javascript
  function fn (v) {
      return v;
- } 
+ }
 //es6写法
  const fn = v => v;
 
@@ -218,14 +218,14 @@ const fn = () => {}//代表把一个函数赋值给fn
 箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this
 
 ```javascript
-const obj = { name: '张三'} 
- function fn () { 
+const obj = { name: '张三'}
+ function fn () {
      console.log(this);//this 指向 是obj对象
-     return () => { 
+     return () => {
          console.log(this);//this 指向 的是箭头函数定义的位置，那么这个箭头函数定义在fn里面，而这个fn指向是的obj对象，所以这个this也指向是obj对象
-     } 
- } 
- const resFn = fn.call(obj); 
+     }
+ }
+ const resFn = fn.call(obj);
  resFn();
 
 ```
@@ -251,13 +251,13 @@ obj.say();//箭头函数this指向的是被声明的作用域里面，而对象�
 ```
 
 ### 剩余参数（★★）
-
+可变长参数 可以看为一个数组
 剩余参数语法允许我们将一个不定数量的参数表示为一个数组，不定参数定义方式，这种方式很方便的去声明不知道参数情况下的一个函数
 
 ```javascript
 function sum (first, ...args) {
      console.log(first); // 10
-     console.log(args); // [20, 30] 
+     console.log(args); // [20, 30]
  }
  sum(10, 20, 30)
 
@@ -267,8 +267,8 @@ function sum (first, ...args) {
 
 ```javascript
 let students = ['wangwu', 'zhangsan', 'lisi'];
-let [s1, ...s2] = students; 
-console.log(s1);  // 'wangwu' 
+let [s1, ...s2] = students;
+console.log(s1);  // 'wangwu'
 console.log(s2);  // ['zhangsan', 'lisi']
 
 ```
@@ -291,18 +291,18 @@ console.log(s2);  // ['zhangsan', 'lisi']
 ##### 扩展运算符可以应用于合并数组
 
 ```javascript
-// 方法一 
+// 方法一
  let ary1 = [1, 2, 3];
  let ary2 = [3, 4, 5];
  let ary3 = [...ary1, ...ary2];
- // 方法二 
+ // 方法二
  ary1.push(...ary2);
 ```
 
 ##### 将类数组或可遍历对象转换为真正的数组
 
 ```javascript
-let oDivs = document.getElementsByTagName('div'); 
+let oDivs = document.getElementsByTagName('div');
 oDivs = [...oDivs];
 ```
 
@@ -317,7 +317,7 @@ let arrayLike = {
     '1': 'b',
     '2': 'c',
     length: 3
-}; 
+};
 //转成数组
 let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
 ```
@@ -325,7 +325,7 @@ let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
 方法还可以接受第二个参数，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组
 
 ```javascript
- let arrayLike = { 
+ let arrayLike = {
      "0": 1,
      "1": 2,
      "length": 2
@@ -333,6 +333,34 @@ let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
  let newAry = Array.from(arrayLike, item => item *2)//[2,4]
 
 ```
+
+### 3.2数组方法filter过滤数组
+
+```js
+  var arr = [12, 66, 4, 88, 3, 7];
+  var newArr = arr.filter(function(value, index,array) {
+  	 //参数一是:数组元素
+     //参数二是:数组元素的索引
+     //参数三是:当前的数组
+     return value >= 20;
+  });
+  console.log(newArr);//[66,88] //返回值是一个新数组
+```
+
+### 3.3数组方法some
+
+```js
+some 查找数组中是否有满足条件的元素
+ var arr = [10, 30, 4];
+ var flag = arr.some(function(value,index,array) {
+    //参数一是:数组元素
+     //参数二是:数组元素的索引
+     //参数三是:当前的数组
+     return value < 3;
+  });
+console.log(flag);//false返回值是布尔值,只要查找到满足条件的一个元素就立马终止循环
+```
+
 
 注意：如果是对象，那么属性需要写对应的索引
 
@@ -344,10 +372,10 @@ let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
 let ary = [{
      id: 1,
      name: '张三'
- }, { 
+ }, {
      id: 2,
      name: '李四'
- }]; 
+ }];
  let target = ary.find((item, index) => item.id == 2);//找数组里面符合条件的值，当数组中元素id等于2的查找出来，注意，只会匹配第一个
 
 ```
@@ -358,7 +386,7 @@ let ary = [{
 
 ```javascript
 let ary = [1, 5, 10, 15];
-let index = ary.findIndex((value, index) => value > 9); 
+let index = ary.findIndex((value, index) => value > 9);
 console.log(index); // 2
 ```
 
@@ -367,7 +395,7 @@ console.log(index); // 2
 判断某个数组是否包含给定的值，返回布尔值。
 
 ```javascript
-[1, 2, 3].includes(2) // true 
+[1, 2, 3].includes(2) // true
 [1, 2, 3].includes(4) // false
 
 ```
@@ -386,18 +414,18 @@ let name = `zhangsan`;
 ##### 模板字符串中可以解析变量
 
 ```javascript
-let name = '张三'; 
+let name = '张三';
 let sayHello = `hello,my name is ${name}`; // hello, my name is zhangsan
 ```
 
 ##### 模板字符串中可以换行
 
 ```javascript
- let result = { 
-     name: 'zhangsan', 
+ let result = {
+     name: 'zhangsan',
      age: 20,
-     sex: '男' 
- } 
+     sex: '男'
+ }
  let html = ` <div>
      <span>${result.name}</span>
      <span>${result.age}</span>
@@ -409,9 +437,9 @@ let sayHello = `hello,my name is ${name}`; // hello, my name is zhangsan
 ##### 在模板字符串中可以调用函数
 
 ```javascript
-const sayHello = function () { 
+const sayHello = function () {
     return '哈哈哈哈 追不到我吧 我就是这么强大';
- }; 
+ };
  let greet = `${sayHello()} 哈哈哈哈`;
  console.log(greet); // 哈哈哈哈 追不到我吧 我就是这么强大 哈哈哈哈
 
@@ -424,7 +452,7 @@ const sayHello = function () {
 
 ```javascript
 let str = 'Hello world!';
-str.startsWith('Hello') // true 
+str.startsWith('Hello') // true
 str.endsWith('!')       // true
 
 ```
@@ -434,7 +462,7 @@ str.endsWith('!')       // true
 repeat方法表示将原字符串重复n次，返回一个新字符串
 
 ```javascript
-'x'.repeat(3)      // "xxx" 
+'x'.repeat(3)      // "xxx"
 'hello'.repeat(2)  // "hellohello"
 ```
 
@@ -464,9 +492,9 @@ const set = new Set([1, 2, 3, 4, 4]);//{1, 2, 3, 4}
 
 ```javascript
  const s = new Set();
- s.add(1).add(2).add(3); // 向 set 结构中添加值 
- s.delete(2)             // 删除 set 结构中的2值   
- s.has(1)                // 表示 set 结构中是否有1这个值 返回布尔值 
+ s.add(1).add(2).add(3); // 向 set 结构中添加值
+ s.delete(2)             // 删除 set 结构中的2值
+ s.has(1)                // 表示 set 结构中是否有1这个值 返回布尔值
  s.clear()               // 清除 set 结构中的所有值
  //注意：删除的是元素的值，不是代表的索引
 ```
