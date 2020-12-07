@@ -47,7 +47,7 @@
             <label for="id">
               编号：
             </label>
-            <input type="text" id="id" v-model='id' :disabled="flag" v-focus>
+            <input type="text" id="id" v-model.number='id' :disabled="flag" v-focus>
             <label for="name">
               名称：
             </label>
@@ -208,6 +208,19 @@
           // 验证图书名称是否已经存在
           var flag = this.books.some(function(item){
             return item.name == val;
+          });
+          if(flag) {
+            // 图书名称存在
+            this.submitFlag = true;
+          }else{
+            // 图书名称不存在
+            this.submitFlag = false;
+          }
+        },
+        id: function(val) {
+          // 验证图书名称是否已经存在
+          var flag = this.books.some(function(item){
+            return item.id == val;
           });
           if(flag) {
             // 图书名称存在
