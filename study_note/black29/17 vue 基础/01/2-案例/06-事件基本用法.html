@@ -10,7 +10,7 @@
     <div id="app">
         <div>{{num}}</div>
         <div>
-            <button v-on:click='num++'>点击</button>
+            <button @click='num++'>点击</button>
             <button @click='num++'>点击1</button>
             <button @click='handle'>点击2</button>
             <button @click='handle()'>点击3</button>
@@ -24,14 +24,14 @@
 
                 num: 0
 
-            }, // 注意点： 这里不要忘记加逗号 
+            }, // 注意点： 这里不要忘记加逗号
             // methods  中 主要是定义一些函数
             methods: {
 
                 handle: function() {
                     // 这里的this是Vue的实例对象+
                     console.log(this === vm)
-                        //   在函数中 想要使用data里面的数据 一定要加this 
+                        //   在函数中 想要使用data里面的数据 一定要加this
                     this.num++;
                 }
 

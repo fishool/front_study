@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  
+
 </head>
 <body>
   <div id="app">
-    <div v-bind:style='{border: borderStyle, width: widthStyle, height: heightStyle}'></div>
-    <div v-bind:style='objStyles'></div>
-    <div v-bind:style='[objStyles, overrideStyles]'></div>
-    <button v-on:click='handle'>切换</button>
+    <div :style='{border: borderStyle, width: widthStyle, height: heightStyle}'></div>
+    <div :style='objStyles'></div>
+    <div :style='[objStyles, overrideStyles]'></div>
+    <button @click='handle'>切换</button>
   </div>
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript">
     /*
       样式绑定之内联样式Style：
-      
+
     */
     var vm = new Vue({
       el: '#app',
