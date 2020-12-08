@@ -7,14 +7,14 @@
 <body>
   <div id="app">
     <div>{{pmsg}}</div>
-    <menu-item :pstr='pstr' :pnum='12' pboo='true' :parr='parr' :pobj='pobj'></menu-item>
+    <menu-item :pstr='pstr' :pnum='12' :pboo='true' :parr='parr' :pobj='pobj'></menu-item>
   </div>
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript">
     /*
       父组件向子组件传值-props属性值类型
     */
-    
+
     Vue.component('menu-item', {
       props: ['pstr','pnum','pboo','parr','pobj'],
       template: `

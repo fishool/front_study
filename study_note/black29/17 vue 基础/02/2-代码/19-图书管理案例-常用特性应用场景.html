@@ -141,6 +141,7 @@
         name: '',
         books: []
       },
+      // 用于声明挂载方法  尽可能使用箭头函数
       methods: {
         handle: function(){
           if(this.flag) {
@@ -197,12 +198,14 @@
           });
         }
       },
+      // 主要用于某个数据变换时, 重新计算得出另一相关值.
       computed: {
         total: function(){
           // 计算图书的总数
           return this.books.length;
         }
       },
+      // 监听 主要用于数据校验
       watch: {
         name: function(val) {
           // 验证图书名称是否已经存在
@@ -218,6 +221,7 @@
           }
         }
       },
+      // 主要用于数据接口请求,初始化数据
       mounted: function(){
         // 该生命周期钩子函数被触发的时候，模板已经可以使用
         // 一般此时用于获取后台数据，然后把数据填充到模板

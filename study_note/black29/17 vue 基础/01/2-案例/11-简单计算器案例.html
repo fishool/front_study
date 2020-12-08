@@ -20,7 +20,7 @@
       </span>
     </div>
     <div>
-      <button v-on:click='handle'>计算</button>
+      <button @click='handle'>计算</button>
     </div>
     <div>
       <span>计算结果:</span>
@@ -30,7 +30,7 @@
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript">
     /*
-      简单计算器案例 
+      简单计算器案例
     */
     var vm = new Vue({
       el: '#app',
