@@ -7,7 +7,7 @@ const mime = require('mime');
 const app = http.createServer();
 
 app.on('request', (req, res) => {
-	// 获取用户的请求路径
+	// 获取用户的请求路径    静态资源访问
 	let pathname = url.parse(req.url).pathname;
 
 	pathname = pathname == '/' ? '/default.html' : pathname;
@@ -21,6 +21,7 @@ app.on('request', (req, res) => {
 	fs.readFile(realPath, (error, result) => {
 		// 如果文件读取失败
 		if (error != null) {
+			// 编写响应头
 			res.writeHead(404, {
 				'content-type': 'text/html;charset=utf8'
 			})

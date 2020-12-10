@@ -34,6 +34,11 @@ function p3 () {
 	});
 }
 
+/**
+ * 三个API 需要三个Promise对象
+ * 
+ */
+
 p1().then((r1)=> {
 	console.log(r1);
 	return p2();
