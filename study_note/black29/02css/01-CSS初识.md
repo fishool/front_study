@@ -18,7 +18,7 @@ typora-copy-images-to: media
 
 # 1.HTML的局限性
 
-说起HTML，这其实是个非常单纯的家伙， 他只关注内容的语义， 
+说起HTML，这其实是个非常单纯的家伙， 他只关注内容的语义，
 
 比如<h1>表明这是一个大标题，用<p> 表明这是一个段落，用<img> 表明这儿有一个图片， 用<a> 表示此处有链接。
 
@@ -44,8 +44,8 @@ HTML说，我试试...
 
 # 2.CSS 网页的美容师
 
-- 让我们的网页更加丰富多彩，布局更加灵活自如。   
-- CSS的最大贡献就是：  让 HTML 从样式中脱离，  实现了 HTML 专注去做 结构呈现，样式交给css 
+- 让我们的网页更加丰富多彩，布局更加灵活自如。
+- CSS的最大贡献就是：  让 HTML 从样式中脱离，  实现了 HTML 专注去做 结构呈现，样式交给css
 
 > **我们理想中的结果： 结构(html)与样式(css)相分离**  这句话要记住
 
@@ -114,9 +114,9 @@ HTML说，我试试...
 ```html
 <head>
 <style type="text/CSS">
-    选择器（选择的标签） { 
+    选择器（选择的标签） {
       属性1: 属性值1;
-      属性2: 属性值2; 
+      属性2: 属性值2;
       属性3: 属性值3;
     }
 </style>
@@ -148,17 +148,17 @@ HTML说，我试试...
 <style>
    /*选择器{属性:值；}*/
    p {
-   	  color:#06C; 
-   	  font-size:14px;  
+   	  color:#06C;
+   	  font-size:14px;
    	}  /*文字的颜色是 蓝色*/
    h4 {
    	 color:#900;
    }
    h1 {
-   	 color:#090; 
-   	 font-size:16px; 
+   	 color:#090;
+   	 font-size:16px;
    	}
-   body { 
+   body {
    	 background:url(bg2.jpg);
    }
 </style>
@@ -193,10 +193,11 @@ HTML说，我试试...
 ```html
 <head>
   <link rel="stylesheet" type="text/css" href="css文件路径">
+  <link rel="stylesheet" type="text/css" href="css文件路径">
 </head>
 ```
 
-- 注意：  
+- 注意：
   - link 是个单标签
   - link标签需要放在head头部标签中，并且指定link标签的三个属性
 
@@ -231,7 +232,7 @@ h3 { color: deeppink;font-size: 20px;}
 ```css
 h3 {
 	color: deeppink;
-    font-size: 20px;    
+    font-size: 20px;
 }
 ```
 
@@ -244,7 +245,7 @@ h3 {
 h3{
 	color: pink;
 }
-	
+
 /* 不推荐 */
 H3{
 	COLOR: PINK;
@@ -257,7 +258,7 @@ H3{
 
 使用HTML时，需要遵从一定的规范。CSS亦如此，要想熟练地使用CSS对网页进行修饰，首先需要了解CSS样式规则，
 
-具体格式如下：                                          
+具体格式如下：
 
 <img src="media/gz.png" />
 

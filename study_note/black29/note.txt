@@ -1,0 +1,37 @@
+localStorage.setItem("key", "value");
+var lastname = localStorage.getItem("key");
+localStorage.removeItem("key");
+
+简易对 localStorage 进行赋值 和 取值
+localStorage.lastname="Smith111";
+let lastName = localStorage.lastname;
+
+DOMContentLoaded
+load
+
+e.preventDefault();
+e.stopPropagation();
+
+父
++ flex-direction：设置主轴的方向
++ justify-content：设置主轴上的子元素排列方式
++ flex-wrap：设置子元素是否换行
++ align-content：设置侧轴上的子元素的排列方式（多行）
++ align-items：设置侧轴上的子元素排列方式（单行）
++ flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap
+子   单独为单个子元素设置 flex 方案
+align-self: auto|stretch|center|flex-start|flex-end|baseline|initial|inherit;
+
+flex: <number>;
+flex 属性定义子项目分配剩余空间，用flex来表示占多少份数。
+
+/*1. 先强制一行内显示文本*/
+    white-space: nowrap;
+/*2. 超出的部分隐藏*/
+    overflow: hidden;
+/*3. 文字用省略号替代超出的部分*/
+    text-overflow: ellipsis;
+
+## 清除浮动
+.clearfix:after {  content: ""; display: block; height: 0; clear: both; visibility: hidden;  }
+.clearfix {*zoom: 1;}   /* IE6、7 专有 */
