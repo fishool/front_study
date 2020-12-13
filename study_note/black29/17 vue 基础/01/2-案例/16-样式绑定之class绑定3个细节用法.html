@@ -26,6 +26,8 @@
     <div :class='arrClasses'></div>
     <div :class='objClasses'></div>
     <div class="base" :class='objClasses'></div>
+    <!-- objClassess 值是否为空  ，为空时候 :class 取arrClasses-->
+    <div class="base" :class='objClasses?objClasses:arrClasses'></div>
 
     <button @click='handle'>切换</button>
   </div>
