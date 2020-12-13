@@ -15,6 +15,7 @@
       自定义指令
     */
     Vue.directive('focus', {
+      // 钩子函数 inserted 被绑定元素插入父节点调用
       inserted: function(el){
         // el表示指令所绑定的元素
         el.focus();

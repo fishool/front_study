@@ -6,15 +6,22 @@
 </head>
 <body>
   <div id="app">
+    <!-- 写法上 绑定对应函数名的返回值 -->
     <div>{{reverseString}}</div>
     <div>{{reverseString}}</div>
+    <!-- 函数调用 -->
     <div>{{reverseMessage()}}</div>
     <div>{{reverseMessage()}}</div>
+    <div>
+      <input type="number" v-model="num">
+    </div>
   </div>
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript">
+  
     /*
       计算属性与方法的区别:计算属性是基于依赖进行缓存的，而方法不缓存
+       计算属性是基于依赖进行缓存的， 依赖对象变化，计算值会跟着变
     */
     var vm = new Vue({
       el: '#app',
@@ -24,12 +31,14 @@
       },
       methods: {
         reverseMessage: function(){
+          // 打印了两次 , 无缓存
           console.log('methods')
           return this.msg.split('').reverse().join('');
         }
       },
       computed: {
         reverseString: function(){
+          // 只打印一次， 第二次调用的时候使用缓存
           console.log('computed')
           // return this.msg.split('').reverse().join('');
           var total = 0;

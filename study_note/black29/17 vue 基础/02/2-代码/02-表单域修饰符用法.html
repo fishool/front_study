@@ -6,8 +6,11 @@
 </head>
 <body>
   <div id="app">
+    <!-- string 转 number -->
     <input type="text" v-model.number='age'>
+    <!-- 去除前后空格 -->
     <input type="text" v-model.trim='info'>
+    <!-- 将input事件 转为change事件  v-mode的监听事件为input -->
     <input type="text" v-model.lazy='msg'>
     <div>{{msg}}</div>
     <button @click='handle'>点击</button>
