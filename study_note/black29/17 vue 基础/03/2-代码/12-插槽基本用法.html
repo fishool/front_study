@@ -13,8 +13,9 @@
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript">
     /*
-      组件插槽：父组件向子组件传递内容
+      组件插槽：父组件向子组件传递内容  v-text
     */
+  //  固定slot标签  如果组件调用时，innerHtml内容不为空， 则将内容传递给组件的slot标签，填充slot标签的内容
     Vue.component('alert-box', {
       template: `
         <div>

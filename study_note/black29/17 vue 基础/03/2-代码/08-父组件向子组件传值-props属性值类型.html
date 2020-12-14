@@ -7,6 +7,7 @@
 <body>
   <div id="app">
     <div>{{pmsg}}</div>
+    <!-- :pnum :pboo 进行了v-bind数值绑定 会自动转换对应的数据类型 ， 如果不进行绑定，则均为字符串型-->
     <menu-item :pstr='pstr' :pnum='12' :pboo='true' :parr='parr' :pobj='pobj'></menu-item>
   </div>
   <script type="text/javascript" src="js/vue.js"></script>
