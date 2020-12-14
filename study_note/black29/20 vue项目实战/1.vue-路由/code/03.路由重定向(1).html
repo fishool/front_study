@@ -14,8 +14,8 @@
     <div id="app">
       <router-link to="/user">User</router-link>
       <router-link to="/register">Register</router-link>
-
-      <!-- 路由占位符 -->
+      <router-link to="/register"></router-link>
+      <!-- 路由占位符 用于展示组件占位-->
       <router-view></router-view>
     </div>
 
@@ -30,7 +30,7 @@
 
       // 创建路由实例对象
       const router = new VueRouter({
-        // 所有的路由规则
+        // 所有的路由规则  路由路径和组件对象一一对应  。 redirect 路由重定向
         routes: [
           { path: '/', redirect: '/user'},
           { path: '/user', component: User },

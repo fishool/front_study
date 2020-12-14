@@ -52,7 +52,7 @@
         routes: [
           { path: '/', redirect: '/user'},
           { path: '/user', component: User },
-          // children 数组表示子路由规则
+          // children 数组表示子路由规则  父组件中嵌套， 子组件
           { path: '/register', component: Register, children: [
             { path: '/register/tab1', component: Tab1 },
             { path: '/register/tab2', component: Tab2 }
