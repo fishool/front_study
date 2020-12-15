@@ -66,6 +66,7 @@
 ####B.默认导入
     import 接收名称 from "模块标识符"，如下：
     import test from "./test.js"
+    import testAPi from "./api/test"
 
 注意：在一个模块中，只允许使用export default向外默认暴露一次成员，千万不要写多个export default。
 如果在一个模块中没有向外暴露成员，其他模块引入该模块时将会得到一个空对象 
@@ -523,7 +524,7 @@ Element-UI:一套基于2.0的桌面端组件库
 官网地址：http://element-cn.eleme.io/#/zh-CN
 A.安装：
     npm install element-ui -S
-B.导入使用：
+B.导入使用 main.js ：
     import ElementUI from "element-ui";
     import "element-ui/lib/theme-chalk/index.css";
     
