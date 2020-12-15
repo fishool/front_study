@@ -57,7 +57,7 @@
         </p>
         <div class="tab">
             <ul>
-                <li v-on:click='change(index)' :class='currentIndex==index?"active":""' :key='item.id' v-for='(item,index) in list'>{{item.title}}</li>
+                <li @click='change(index)' :class='currentIndex==index?"active":""' :key='item.id' v-for='(item,index) in list'>{{item.title}}</li>
             </ul>
             <div :class='currentIndex==index?"current":""' :key='item.id' v-for='(item, index) in list'>
                 <img :src="item.path">

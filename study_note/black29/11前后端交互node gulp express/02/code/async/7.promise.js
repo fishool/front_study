@@ -4,11 +4,11 @@ const fs = require('fs');
  * Promise出现目的是解决Node.js 异步编程中回调地狱的问题
  * resolve  执行成功函数 ，可将执行结果传递出去
  * reject   执行失败函数， 可将错误信息传递出去
+ *
  */
 let promise = new Promise((resolve, reject) => {
-
+	// Node.js 回调函数的第一个参数，必须是错误对象err
 	fs.readFile('./100.txt', 'utf8', (err, result) => {
-
 		if (err != null) {
 			reject(err);
 		}else {
@@ -16,7 +16,6 @@ let promise = new Promise((resolve, reject) => {
 		}
 
 	});
-
 });
 
 /**
