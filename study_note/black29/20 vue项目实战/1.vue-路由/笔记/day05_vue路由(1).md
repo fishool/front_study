@@ -1,9 +1,9 @@
 ###今日目标
-1.能够说出什么是路由 
+1.能够说出什么是路由
 2.能够说出前端路由的实现原理
 3.能够使用Vue-Router实现前端路由
-4.能够实现嵌套路由，动态路由  
-5.能够实现命名路由以及编程式导航 
+4.能够实现嵌套路由，动态路由
+5.能够实现命名路由以及编程式导航
 6.理解并实现后台管理案例
 
 
@@ -14,7 +14,7 @@
 
 路由分为前端路由和后端路由
 1).后端路由是由服务器端进行实现，并完成资源的分发
-2).前端路由是依靠hash值(锚链接)的变化进行实现 
+2).前端路由是依靠hash值(锚链接)的变化进行实现
 
 后端路由性能相对前端路由来说较低，所以，我们接下来主要学习的是前端路由
 前端路由的基本概念：根据不同的事件来显示不同的页面内容，即事件与事件处理函数之间的对应关系
@@ -46,8 +46,8 @@ window.onhashchange = function(){
         <!-- 被 vue 实例控制的 div 区域 -->
         <div id="app">
         <!-- 切换组件的超链接 -->
-        <a href="#/zhuye">主页</a> 
-        <a href="#/keji">科技</a> 
+        <a href="#/zhuye">主页</a>
+        <a href="#/keji">科技</a>
         <a href="#/caijing">财经</a>
         <a href="#/yule">娱乐</a>
 
@@ -135,8 +135,8 @@ window.onhashchange = function(){
 在页面中有四个超链接，如下：
 
 ```
-<a href="#/zhuye">主页</a> 
-<a href="#/keji">科技</a> 
+<a href="#/zhuye">主页</a>
+<a href="#/keji">科技</a>
 <a href="#/caijing">财经</a>
 <a href="#/yule">娱乐</a>
 ```
@@ -264,8 +264,8 @@ var User = { template: "<div>This is User</div>" }
         routes: [
             { path:"/",redirect:"/user"},
             { path: "/user", component: User },
-            { 
-                path: "/login", 
+            {
+                path: "/login",
                 component: Login,
                 //通过children属性为/login添加子路由规则
                 children:[
@@ -295,16 +295,16 @@ var User = { template:"<div>用户：{{$route.params.id}}</div>"}
 var myRouter = new VueRouter({
     //routes是路由规则数组
     routes: [
-        //通过/:参数名  的形式传递参数 
+        //通过/:参数名  的形式传递参数
         { path: "/user/:id", component: User },
-        
+
     ]
 })
 
 补充：
 如果使用$route.params.id来获取路径传参的数据不够灵活。
 1.我们可以通过props来接收参数
-var User = { 
+var User = {
     props:["id"],
     template:"<div>用户：{{id}}</div>"
     }
@@ -312,16 +312,16 @@ var User = {
 var myRouter = new VueRouter({
     //routes是路由规则数组
     routes: [
-        //通过/:参数名  的形式传递参数 
+        //通过/:参数名  的形式传递参数
         //如果props设置为true，route.params将会被设置为组件属性
         { path: "/user/:id", component: User,props:true },
-        
+
     ]
 })
 
 2.还有一种情况，我们可以将props设置为对象，那么就直接将对象的数据传递给
 组件进行使用
-var User = { 
+var User = {
     props:["username","pwd"],
     template:"<div>用户：{{username}}---{{pwd}}</div>"
     }
@@ -329,16 +329,16 @@ var User = {
 var myRouter = new VueRouter({
     //routes是路由规则数组
     routes: [
-        //通过/:参数名  的形式传递参数 
+        //通过/:参数名  的形式传递参数
         //如果props设置为对象，则传递的是对象中的数据给组件
         { path: "/user/:id", component: User,props:{username:"jack",pwd:123} },
-        
+
     ]
 })
 
 3.如果想要获取传递的参数值还想要获取传递的对象数据，那么props应该设置为
 函数形式。
-var User = { 
+var User = {
     props:["username","pwd","id"],
     template:"<div>用户：{{id}} -> {{username}}---{{pwd}}</div>"
     }
@@ -346,15 +346,15 @@ var User = {
 var myRouter = new VueRouter({
     //routes是路由规则数组
     routes: [
-        //通过/:参数名  的形式传递参数 
+        //通过/:参数名  的形式传递参数
         //如果props设置为函数，则通过函数的第一个参数获取路由对象
         //并可以通过路由对象的params属性获取传递的参数
         //
         { path: "/user/:id", component: User,props:(route)=>{
             return {username:"jack",pwd:123,id:route.params.id}
-            } 
+            }
         },
-        
+
     ]
 })
 
@@ -368,7 +368,7 @@ var myRouter = new VueRouter({
     routes: [
         //通过name属性为路由添加一个别名
         { path: "/user/:id", component: User, name:"user"},
-        
+
     ]
 })
 
@@ -393,6 +393,26 @@ this.$router.push({ path:"/login",query:{username:"jack"} });
 
 this.$router.go( n );//n为数字，参考history.go
 this.$router.go( -1 );
+
+
+路由传参
+```
+
+<!-- 方式一 -->
+<router-link :to="'/home/goodsinfo?参数名='+传递参数"></router-link>
+<!-- 方式二 -->
+<router-link :to="'/home/goodsinfo/'+传递参数"></router-link>
+{ path: "/home/goodsinfo/:参数名", component: goodsinfo }
+<!-- 方式二 -->
+
+
+
+// 方式一获取参数
+this.$route.query.参数名
+// 方式二获取参数
+this.$route.params.参数名
+
+```
 
 ###8.实现后台管理案例(★★★)
 
@@ -487,7 +507,7 @@ const app = {
           <div class="content right">
             <div class="main-content">
                 <!-- 在 -->
-                <router-view></router-view> 
+                <router-view></router-view>
             </div>
           </div>
         </div>

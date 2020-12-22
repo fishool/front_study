@@ -64,10 +64,10 @@ div{
 	   div:hover {
 		   /* 注意，数字是倍数的含义，所以不需要加单位 */
 		   /* transform: scale(2, 2) */
-	   
+
 		   /* 实现等比缩放，同时修改宽与高 */
 		   /* transform: scale(2) */
-	   
+
 		   /* 小于 1 就等于缩放*/
 		   transform: scale(0.5, 0.5)
 	   }
@@ -92,6 +92,9 @@ div{
 2.  代码演示
 
    ```css
+   div:hover {
+     transform: translate(200px, 0) rotate(360deg) scale(1.2)
+   }
    div:hover {
      transform: translate(200px, 0) rotate(360deg) scale(1.2)
    }
@@ -151,7 +154,7 @@ div{
          animation-name: move;
          animation-duration: 0.5s;
        }
-   
+
        @keyframes move{
          0% {
            transform: translate(0px)
@@ -197,7 +200,7 @@ div{
      /* 动画结束之后的状态 */
      animation-fill-mode: forwards;
    }
-   
+
    div:hover {
      /* 规定动画是否暂停或者播放 */
      animation-play-state: paused;
@@ -218,7 +221,7 @@ div{
    - 简写属性里面不包含 `animation-paly-state`
    - 暂停动画 `animation-paly-state: paused`; 经常和鼠标经过等其他配合使用
    - 要想动画走回来，而不是直接调回来：`animation-direction: alternate`
-   - 盒子动画结束后，停在结束位置：`animation-fill-mode: forwards` 
+   - 盒子动画结束后，停在结束位置：`animation-fill-mode: forwards`
 
 3. 代码演示
 
@@ -247,12 +250,12 @@ div{
      background-color: aquamarine;
      animation: move 4s steps(24) forwards;
    }
-   
+
    @keyframes move {
      0% {
        width: 0px;
      }
-   
+
      100% {
        width: 480px;
      }
@@ -274,7 +277,7 @@ div{
     <style>
         body {
             background-color: #ccc;
-        }      
+        }
         div {
             position: absolute;
             width: 200px;
@@ -283,7 +286,7 @@ div{
             /* 我们元素可以添加多个动画， 用逗号分隔 */
             animation: bear .4s steps(8) infinite, move 3s forwards;
         }
-        
+
         @keyframes bear {
             0% {
                 background-position: 0 0;
@@ -292,7 +295,7 @@ div{
                 background-position: -1600px 0;
             }
         }
-        
+
         @keyframes move {
             0% {
                 left: 0;
