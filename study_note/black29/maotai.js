@@ -9,7 +9,7 @@ function checkElementState(path,callback){
 		callback && callback();
 	}else{
 		console.log('异步加载元素中....' + path );
-		setTimeout( function(){checkElementState(path,callback);},200);
+		setTimeout( function(){checkElementState(path,callback);},1);
 	}
 }
 
@@ -70,15 +70,15 @@ function submitOrder(){
 
 
 //目标时间
-	var dDate = new Date();  //10点和20点开抢
-	if( dDate.getHours() < 10 ){
-		dDate.setHours(9,59,59.2);
-	}else{
-		// dDate.setHours(19,59,59.2);
-		dDate.setHours(10,28,59.2);
-	}
+var dDate = new Date();  //10点和20点开抢
+if( dDate.getHours() < 10 ){
+	dDate.setHours(10,0,0);
+}else{
+	dDate.setHours(20,0,0);
+	// dDate.setHours(20,29,0);
+}
 
-	//dDate.setSeconds( dDate.getSeconds() + 10 );
+//dDate.setSeconds( dDate.getSeconds() + 10 );
 
 //进入时间判断循环
 function enterTimeCheckLoop(callback){
@@ -87,7 +87,7 @@ function enterTimeCheckLoop(callback){
 
 
 
-	var diff = Date.parse(dDate) - Date.parse(date) ;
+	var diff = dDate.getTime() - date.getTime() ;
 
 	console.log(diff);
 
@@ -95,14 +95,14 @@ function enterTimeCheckLoop(callback){
 
 		console.log('时间过了！');
 
-	}else if(diff < 500 ) {
+	}else if(diff < 10 ) {
 
 		callback && callback();
 
 		console.log('时间到了！！！');
 
 	}else{
-		setTimeout(function(){ enterTimeCheckLoop(callback);},400);
+		setTimeout(function(){ enterTimeCheckLoop(callback);},2);
 
 		//console.log('--');
 	}

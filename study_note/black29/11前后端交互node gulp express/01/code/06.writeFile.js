@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.writeFile('./demo.txt', '即将要写入的内容', err => {
+fs.writeFile('./demo.txt', '即将要写入的内容33322', err => {
 	if (err != null) {
 		console.log(err);
 		return;
