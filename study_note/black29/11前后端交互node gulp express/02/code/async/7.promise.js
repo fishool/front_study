@@ -8,7 +8,7 @@ const fs = require('fs');
  */
 let promise = new Promise((resolve, reject) => {
 	// Node.js 回调函数的第一个参数，必须是错误对象err
-	fs.readFile('./100.txt', 'utf8', (err, result) => {
+	fs.readFile('./1.txt', 'utf8', (err, result) => {
 		if (err != null) {
 			reject(err);
 		}else {
@@ -26,5 +26,5 @@ promise.then((result) => {
 	 console.log(result);
 })
 .catch((err)=> {
-	console.log("错误");
+	console.log(err);
 })
