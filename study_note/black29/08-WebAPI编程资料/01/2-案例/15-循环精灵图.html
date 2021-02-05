@@ -11,16 +11,16 @@
             margin: 0;
             padding: 0;
         }
-        
+
         li {
             list-style-type: none;
         }
-        
+
         .box {
             width: 250px;
             margin: 100px auto;
         }
-        
+        /* 24+15+15 = 54   250/54 = 4 */
         .box li {
             float: left;
             width: 24px;
@@ -50,7 +50,7 @@
         </ul>
     </div>
     <script>
-        // 1. 获取元素 所有的小li 
+        // 1. 获取元素 所有的小li
         var lis = document.querySelectorAll('li');
         for (var i = 0; i < lis.length; i++) {
             // 让索引号 乘以 44 就是每个li 的背景y坐标  index就是我们的y坐标
