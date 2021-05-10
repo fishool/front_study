@@ -2,7 +2,7 @@ console.log(typeof undefined);// "undefined"
 
 console.log(typeof 0) // "number"
 
-console.log(typeof 10n) // "bigint"
+console.log(typeof 10n) // "bigint" 1
 
 console.log(typeof true) // "boolean"
 
