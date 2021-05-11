@@ -59,10 +59,10 @@
         });
     }
 
-    print(1000, "First").then(function () {
-        return print(4000, "Second");
+    print(1000, "First111").then(function () {
+        return  print(4000, "Second111");
     }).then(function () {
-        print(3000, "Third");
+        print(3000, "Third111");
     });
 
 
@@ -71,9 +71,9 @@
      * @returns {Promise<void>}
      */
     async function asyncFunc() {
-        await print(1000, "First");
-        await print(4000, "Second");
-        await print(3000, "Third");
+        await print(1000, "First222");
+        await print(4000, "Second222");
+        await print(3000, "Third222");
     }
     asyncFunc();
 </script>
