@@ -12,7 +12,7 @@ console.log(user);
 
 
 
-function Calculator(){
+function Calculator() {
     this.firstValue;
     this.secondValue;
     this.read = function () {
@@ -26,7 +26,6 @@ function Calculator(){
     this.mul = function () {
         return this.firstValue * this.secondValue;
     }
-
 
 }
 
