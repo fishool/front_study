@@ -72,3 +72,12 @@ Promise.race([
     new Promise((resolve, reject) => setTimeout(() => reject(new Error("Whoops!")), 2000)),
     new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
 ]).then(console.log, console.log); // 1
+
+
+/*
+Promise 处理始终是异步的，
+因为所有 promise 行为都会通过内部的 “promise jobs” 队列，也被称为“微任务队列”（ES8 术语）。
+因此，.then/catch/finally 处理程序（handler）总是在当前代码完成后才会被调用。
+如果我们需要确保一段代码在 .then/catch/finally 之后被执行，我们可以将它添加到链式调用的 .then 中。
+在大多数 JavaScript 引擎中（包括浏览器和 Node.js），微任务（microtask）的概念与“事件循环（event loop）”和“宏任务（macrotasks）”紧密相关。由于这些概念跟 promise 没有直接关系，所以我们将在本教程另外一部分的 事件循环：微任务和宏任务 一章中对它们进行介绍。
+ */
