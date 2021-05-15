@@ -53,3 +53,38 @@ let user = await response.json();
     let value = await myPro;
     console.log(value);
 })();
+
+
+
+/*
+用 async/await 来重写
+重写下面这个来自 Promise 链 一章的示例代码，使用 async/await 而不是 .then/catch：
+
+function loadJson(url) {
+  return fetch(url)
+    .then(response => {
+      if (response.status == 200) {
+        return response.json();
+      } else {
+        throw new Error(response.status);
+      }
+    });
+}
+
+loadJson('no-such-user.json')
+  .catch(alert); // Error: 404
+ */
+const fetch = require('node-fetch');
+function loadJson(url) {
+    return fetch(url)
+        .then(response => {
+            if (response.status == 200) {
+                return response.toString;
+            } else {
+                throw new Error(response.status);
+            }
+        });
+}
+
+loadJson('http://www.baidu11111.com')
+    .catch(console.log); // Error: 404
