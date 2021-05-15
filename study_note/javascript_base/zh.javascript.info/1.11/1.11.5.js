@@ -88,3 +88,14 @@ function loadJson(url) {
 
 loadJson('http://www.baidu11111.com')
     .catch(console.log); // Error: 404
+
+async function loadJson22() {
+    let result = await fetch(url);
+    if (result.status == 200) {
+        return result.toString;
+    } else {
+        throw new Error(response.status);
+    }
+}
+loadJson22('http://www.baidu11111.com')
+    .catch(console.log); // Error: 404
