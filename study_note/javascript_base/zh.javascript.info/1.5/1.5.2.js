@@ -53,3 +53,6 @@ alert( parseFloat('12.5em') ); // 12.5
 alert( parseInt('12.3') ); // 12，只有整数部分被返回了
 alert( parseFloat('12.3.4') ); // 12.3，在第二个点出停止了读取
  */
+
+// 判断 0.1 + 0.2  是否 等于 0.3 的正确方式
+console.log( Math.abs(0.1 + 0.2 - 0.3) <= Number.EPSILON);
