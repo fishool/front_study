@@ -56,3 +56,37 @@ alert( parseFloat('12.3.4') ); // 12.3，在第二个点出停止了读取
 
 // 判断 0.1 + 0.2  是否 等于 0.3 的正确方式
 console.log( Math.abs(0.1 + 0.2 - 0.3) <= Number.EPSILON);
+
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    say() {
+        console.log("my name"+this.name +"say");
+    }
+}
+
+class Dog extends Animal{
+    constructor(name) {
+        super(name);
+    }
+
+    say() {
+        console.log("bark~~~"+this.name);
+    }
+}
+
+let d = new Dog('Mitzie');
+d.say(); // Mitzie barks.
+
+
+
+class Person {
+    constructor(age, name) {
+        this.age = age;
+        this.name = name;
+    }
+
+}
