@@ -90,3 +90,20 @@ class Person {
     }
 
 }
+
+
+
+function f(){
+    return 1;
+}
+var v = f(); // 把 f 作为函数调用
+var o = new f(); // 把 f 作为构造器调用
+
+/**
+ *
+ 我们大致可以认为，它们 [[construct]] 的执行过程如下：
+
+ 以 Object.protoype 为原型创建一个新对象；
+ 以新对象为 this，执行函数的 [[call]]；
+ 如果 [[call]] 的返回值是对象，那么，返回这个对象，否则返回第一步创建的新对象。
+ */

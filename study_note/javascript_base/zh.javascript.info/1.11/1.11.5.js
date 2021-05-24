@@ -86,16 +86,41 @@ function loadJson(url) {
         });
 }
 
-loadJson('http://www.baidu11111.com')
-    .catch(console.log); // Error: 404
+// loadJson('http://www.baidu11111.com')
+//     .catch(console.log); // Error: 404
+//
+// async function loadJson22() {
+//     let result = await fetch(url);
+//     if (result.status == 200) {
+//         return result.toString;
+//     } else {
+//         throw new Error(response.status);
+//     }
+// }
+// loadJson22('http://www.baidu11111.com')
+//     .catch(console.log); // Error: 404
 
-async function loadJson22() {
-    let result = await fetch(url);
-    if (result.status == 200) {
-        return result.toString;
-    } else {
-        throw new Error(response.status);
+
+/*
+async 函数必定返回 Promise，我们把所有返回 Promise 的函数都可以认为是异步函数
+ */
+
+
+
+// 红灯3 绿5 黄2
+(async function f1() {
+    while (true) {
+        console.log(await light(3000, "红灯"));
+        console.log(await light(5000, "绿灯"));;
+        console.log(await light(2000, "黄灯"));;
     }
+})();
+
+async function light(lightTime, lightColor) {
+    console.log(lightColor);
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve(new Date() + lightColor), lightTime)
+    });
+    let result = await promise; // 等待，直到 promise resolve (*)
+    return result;
 }
-loadJson22('http://www.baidu11111.com')
-    .catch(console.log); // Error: 404

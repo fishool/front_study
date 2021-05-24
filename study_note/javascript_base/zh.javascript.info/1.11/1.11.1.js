@@ -82,3 +82,29 @@ new Promise(((resolve, reject) => {
 .finally(f) 调用与 .then(f, f) 类似，在某种意义上，
 f 总是在 promise 被 settled 时运行：即 promise 被 resolve 或 reject
  */
+
+
+var r = new Promise(function(resolve, reject){
+    console.log("a");
+    resolve()
+});
+setTimeout(()=>console.log("d"), 0)
+r.then(() => console.log("c"));
+console.log("b")
+
+/**
+ *
+ 微任务始终先于宏任务
+ Promise 产生的是 JavaScript 引擎内部的微任务，而 setTimeout 是浏览器 API，它产生宏任务。
+ */
+
+
+/*
+我们可以总结一下如何分析异步执行的顺序：
+
+首先我们分析有多少个宏任务；
+在每个宏任务中，分析有多少个微任务；
+根据调用次序，确定宏任务中的微任务执行次序；
+根据宏任务的触发规则和调用次序，确定宏任务的执行次序；
+确定整个顺序。
+ */
