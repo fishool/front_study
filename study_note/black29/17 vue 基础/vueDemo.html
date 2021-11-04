@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,18 +7,42 @@
 </head>
 <body>
     <div id="hello-vue" class="demo">
-        {{ message }}
+        {{ message }},,,,
+        {{ count }},,,,
+        <input v-model="count">, -------
+        <div v-text="count">
+        </div>
+        <div v-once="count">
+        </div>
+
+        <div><a v-bind:href="url">菜鸟教程</a></div>
+
     </div>
 </body>
+<!--data 选项是一个函数。Vue 在创建新组件实例的过程中调用此函数。
+它应该返回一个对象，然后 Vue 会通过响应性系统将其包裹起来，并以 $data 的形式存储在组件实例中-->
 <script>
     const HelloVueApp = {
         data() {
             return {
-                message: "Hello Vue"
+                message: "Hello Vue",
+                count: "5",
+                url: 'https://www.runoob.com'
+            }
+        },
+        methods: {
+            increment() {
+                this.count++;
             }
         }
     }
 
-    Vue.createApp(HelloVueApp).mount('#hello-vue')
+    let vm = Vue.createApp(HelloVueApp).mount('#hello-vue');
+    console.log(vm.$data.message)
+
+    setInterval(()=>{
+        vm.increment();
+    } , 1000)
+
 </script>
 </html>
