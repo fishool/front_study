@@ -2,7 +2,7 @@
 
 // 异常处理
 try{
-    alert('Start of try runs');  // (1) <--
+    console.log('Start of try runs');  // (1) <--
 }catch (err) {
     console.log("发生异常");
     console.log(err.toString());
@@ -17,6 +17,8 @@ try{
 
 //Promise
 /*
+Promise 构造函数只有一个参数，是一个函数，这个函数在构造之后会直接被异步运行，
+所以我们称之为起始函数。起始函数包含两个参数 resolve 和 reject。
 let promise = new Promise(function(resolve, reject) {
   // executor（生产者代码，“歌手”）  resolve 和 reject 是由 JavaScript 自身提供的回调
   // executor 会自动运行并尝试执行一项工作。尝试结束后，如果成功则调用 resolve，如果出现 error 则调用 reject。
