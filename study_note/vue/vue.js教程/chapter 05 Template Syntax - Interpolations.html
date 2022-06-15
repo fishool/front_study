@@ -16,17 +16,51 @@
 	<p>{{ number + 1 }}</p>
 	<p>{{ 1 == 1 ? 'YES' : 'NO' }}</p>
 	<p>{{ message.split('').reverse().join('') }}</p>
+
+
+	<!-- 计算属性  -->
+	<div id="example">
+		<p>Original message: "{{ message }}"</p>
+	<!--	计算属性缓存
+	message 还没有发生改变，多次访问 reversedMessage
+	计算属性会立即返回之前的计算结果，而不必再次执行函数-->
+		<p>Computed reversed message: "{{ reversedMessage }}"</p>
+	</div>
+
+	<!-- 计算属性  -->
+	<div id="example2">
+		<input v-model="firstName">
+		<input v-model="secondName">
+		<p>{{ fullName }}</p>
+
+	</div>
 </div>
 <script type="text/javascript">
 var vm = new Vue({
 	el : "#app",
 	data : {
+		firstName: "",
+		secondName: "",
+		fullName: "",
 		msg : "hi vue",
 		rawHtml : '<span style="color:red">this is should be red</span>',
 		color:'blue',
 		number : 10,
 		ok : 1,
-		message : "vue"
+		message : "vue is good framework"
+	},
+	computed : {
+		reversedMessage: function () {
+			return this.message.split('').reverse().join('');
+		}
+	},
+	watch: {
+		firstName: function () {
+			this.fullName = 	this.firstName +	this.secondName;
+		},
+		secondName: function () {
+			this.fullName = 	this.firstName +	this.secondName;
+		},
 	}
 });
 vm.msg = "hi....";

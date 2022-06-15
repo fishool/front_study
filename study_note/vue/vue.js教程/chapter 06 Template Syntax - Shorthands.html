@@ -10,6 +10,7 @@
 	<p v-if="seen">现在你看到我了</p>
 	<a v-bind:href="url">...</a>
 	<div @click="click1">
+		<!-- 阻止事件冒泡 -->
 		<div @click.stop="click2">
 			click me
 		</div>
