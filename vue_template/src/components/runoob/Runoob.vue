@@ -4,7 +4,6 @@
     <h2>Essential Links</h2>
     <button @click='goTo()'>点击跳转1111</button>
   </div>
-    
 </template>
 
 <script>
