@@ -11,6 +11,7 @@
 	<test></test>
 </div>
 <script type="text/javascript">
+	// 全局注册
 Vue.component('button-counter', {
 	props: ['title'],
 	data: function () {
@@ -18,19 +19,20 @@ Vue.component('button-counter', {
 	},
 	template: '<div><h1>hi...</h1></div>',
 	methods:{
-		
+
 	}
 })
 var vm = new Vue({
 	el : "#app",
 	data : {
-		
+
 	},
 	methods:{
 		clicknow : function (e) {
 			console.log(e);
 		}
 	},
+	<!-- 局部注册	-->
 	components:{
 		test : {
 			template:"<h2>h2...</h2>"
