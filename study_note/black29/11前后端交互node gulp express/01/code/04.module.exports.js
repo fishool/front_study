@@ -10,3 +10,5 @@ module.exports = {
 // exports = {
 // 	age: 20
 // }
+
+console.log(module)
