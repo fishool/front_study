@@ -3,6 +3,7 @@
     "formidable": "^1.2.2",
     "gulp": "^4.0.2",
     "gulp-connect": "^5.7.0",
+    "moment": "^2.29.3",
     "node-fetch": "^2.6.1"
   }
 }

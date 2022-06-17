@@ -4,5 +4,6 @@ const a = require('./04.module.exports.js');
 // require 获取到的是对应模块的 module.exports 对象
 // console.log(a.greeting('zhangsan'));
 console.log(a);
-
+// 调用方法对象
+a.fuckyou();
 console.log(module)
