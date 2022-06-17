@@ -1,14 +1,12 @@
-const greeting = name => `hello ${name}`;
-const x = 100;
-// exports.x = x;
-// module.exports.greeting = greeting;
-// 当exports对象和moudle.exports对象指向的不是同一个对象时 以module.exports为准
-module.exports = {
-	name: 'zhangsan'
+
+// 以module.exports为准
+exports.name = 's'
+exports.fuckyou = function() {
+    console.log('fuckyou');
 }
 
-// exports = {
-// 	age: 20
-// }
-
-console.log(module)
+// module.exports  exports  默认是指向同一个对象
+// 最终对外暴露的对象 是module.exports
+console.log(module.exports)
+console.log(exports)
+console.log(module.exports === exports)
