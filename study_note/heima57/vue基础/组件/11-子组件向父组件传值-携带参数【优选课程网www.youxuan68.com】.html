@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div :style='{fontSize: fontSize + "px"}'>{{pmsg}}</div>
+    <menu-item :parr='parr' @enlarge-text='handle($event)'></menu-item>
+
+    <div :style="{height: widthValue+'px', width: widthValue+'px', backgroundColor: 'pink'}"></div>
+    <sc-item sc-value='sccccc' @enlarge-div='handleDiv($event)'></sc-item>
+
+  </div>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript">
+    /*
+      子组件向父组件传值-携带参数
+      @emit("enlarge-text", 5)
+      @enlarge-text='handle($event)'
+      handle: function(val) {
+        val === 5;
+      }
+    */
+
+    Vue.component('menu-item', {
+      props: ['parr'],
+      template: `
+        <div>
+          <ul>
+            <li :key='index' v-for='(item,index) in parr'>{{item}}</li>
+          </ul>
+          <button @click='$emit("enlarge-text", 5)'>扩大父组件中字体大小</button>
+          <button @click='$emit("enlarge-text", 10)'>扩大父组件中字体大小</button>
+        </div>
+      `
+    });
+    Vue.component("sc-item", {
+        props: ['sc-value'],
+        template: `
+         <div>
+               {{scValue}}
+               <button @click='$emit("enlarge-div",20)'>变大</button>
+         </div>
+
+        `});
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        widthValue: 100,
+        heightValue: 100,
+        pmsg: '父组件中内容',
+        parr: ['apple','orange','banana'],
+        fontSize: 10
+      },
+      methods: {
+        handle: function(val){
+          // 扩大字体大小
+          this.fontSize += val;
+        },
+        handleDiv: function (value) {
+          this.widthValue = this.widthValue+value;
+          this.heightValue = this.heightValue+value;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
