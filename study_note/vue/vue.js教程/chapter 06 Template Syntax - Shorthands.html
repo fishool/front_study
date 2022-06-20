@@ -8,7 +8,7 @@
 <body>
 <div id="app">
 	<p v-if="seen">现在你看到我了</p>
-	<a v-bind:href="url">...</a>
+	<a v-bind:href="url" @click.prevent="click1">...</a>
 	<div @click="click1">
 		<!-- 阻止事件冒泡 -->
 		<div @click.stop="click2">
@@ -24,10 +24,13 @@ var vm = new Vue({
 		url : "https://cn.vuejs.org/v2/guide/syntax.html#%E6%8C%87%E4%BB%A4"
 	},
 	methods:{
-		click1 : function () {
+		click1 : function (event) {
+			console.log(this.innerHTML)
 			console.log('click1......');
 		},
-		click2 : function () {
+		click2 : function (event) {
+			console.log(event)
+			console.log(this)
 			console.log('click2......');
 		}
 	}
