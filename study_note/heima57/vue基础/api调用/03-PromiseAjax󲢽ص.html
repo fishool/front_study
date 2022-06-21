@@ -5,10 +5,14 @@
   <title>Document</title>
 </head>
 <body>
-  
+
   <script type="text/javascript">
     /*
       基于Promise发送Ajax请求
+            promise.then
+      //1. 执行异步任务 获取异步结果
+      //2. 调用成功使用resolve
+      //3. 调用失败使用resolve
     */
     function queryData(url) {
       var p = new Promise(function(resolve, reject){
