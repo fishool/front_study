@@ -5,6 +5,7 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  // state 存放全局变量
   state: {
     // 所有的任务列表
     list: [],
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     nextId: 5,
     viewKey: 'all'
   },
+  // mutations是更改state的唯一方法
   mutations: {
     initList(state, list) {
       state.list = list
@@ -58,6 +60,7 @@ export default new Vuex.Store({
       state.viewKey = key
     }
   },
+  // actions是用来触发mutations的，可以让我们的程序更加灵活，更加容易维护
   actions: {
     getList(context) {
       axios.get('/list.json').then(({ data }) => {
@@ -66,6 +69,7 @@ export default new Vuex.Store({
       })
     }
   },
+  // getters是用来计算state的，可以让我们的程序更加灵活，更加容易维护
   getters: {
     // 统计未完成的任务的条数
     unDoneLength(state) {
