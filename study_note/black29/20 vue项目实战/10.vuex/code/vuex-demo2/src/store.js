@@ -60,7 +60,7 @@ export default new Vuex.Store({
       state.viewKey = key
     }
   },
-  // actions是用来触发mutations的，可以让我们的程序更加灵活，更加容易维护
+  // 可以进行异步操作,  但修改数据还是需要触发mutations
   actions: {
     getList(context) {
       axios.get('/list.json').then(({ data }) => {

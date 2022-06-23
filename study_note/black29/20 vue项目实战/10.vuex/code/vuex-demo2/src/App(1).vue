@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters,mapMutations } from 'vuex'
 
 export default {
   name: 'app',
@@ -37,16 +37,21 @@ export default {
     return {}
   },
   created() {
+    //
     this.$store.dispatch('getList')
   },
   computed: {
     ...mapState(['inputValue', 'viewKey']),
-    ...mapGetters(['unDoneLength', 'infolist'])
+    ...mapGetters(['unDoneLength', 'infolist']),
+    ...mapMutations(['setInputValue'])
   },
   methods: {
     // 监听文本框内容变化
     handleInputChange(e) {
+      // 第一种写法
       this.$store.commit('setInputValue', e.target.value)
+      // 第二种写法
+      this.setInputValue(e.target.value);
     },
     // 向列表中新增 item 项
     addItemToList() {
