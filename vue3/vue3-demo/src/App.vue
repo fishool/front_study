@@ -19,6 +19,7 @@ export default {
   // 2.可以理解为beforeCreate钩子函数前执行
   // 3.setup中不能使用this , 因为组件还没有实例化
   // 4. 模板中需要使用的数据和函数, 需要在setup中返回
+  // 5. props 为父组件传递的属性
   setup(props) {
     console.log('setup start');
     console.log(props);
