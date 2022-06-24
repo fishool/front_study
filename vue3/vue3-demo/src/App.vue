@@ -12,13 +12,16 @@ import {onMounted, onUnmounted, reactive, ref} from "vue";
 
 export default {
   name: 'App',
+  props: {
+    testProp: String
+  },
   // 1.setup组合API的起点
   // 2.可以理解为beforeCreate钩子函数前执行
   // 3.setup中不能使用this , 因为组件还没有实例化
   // 4. 模板中需要使用的数据和函数, 需要在setup中返回
-  setup() {
+  setup(props) {
     console.log('setup start');
-
+    console.log(props);
     const msg = 'setup vue3';
     // 挂载生命周期钩子函数
     onMounted(() => {
