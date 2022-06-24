@@ -20,9 +20,12 @@ export default {
   // 3.setup中不能使用this , 因为组件还没有实例化
   // 4. 模板中需要使用的数据和函数, 需要在setup中返回
   // 5. props 为父组件传递的属性
-  setup(props) {
+  // 6. context 为父组件传递的上下文, 可以访问到父组件的数据和函数(如: $emit)
+  setup(props, context) {
     console.log('setup start');
     console.log(props);
+    console.log(context);
+    // context.emit('test', 'test');
     const msg = 'setup vue3';
     // 挂载生命周期钩子函数
     onMounted(() => {
