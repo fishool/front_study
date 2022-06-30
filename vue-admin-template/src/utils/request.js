@@ -21,6 +21,7 @@ service.interceptors.request.use(
       // please modify it according to the actual situation
       config.headers['X-Token'] = getToken()
     }
+    // 记得返回config
     return config
   },
   error => {
