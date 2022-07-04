@@ -48,7 +48,13 @@ export default {
       }
     }
   },
+  created () {
+    this.test()
+  },
   methods: {
+    test () {
+      console.log('test')
+    },
     submit () {
       this.$refs.form.validate(valid => {
         if (valid) {

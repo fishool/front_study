@@ -6,6 +6,14 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created() {
+    this.test()
+  },
+  methods: {
+    test() {
+      console.log('test')
+    }
+  }
 }
 </script>
