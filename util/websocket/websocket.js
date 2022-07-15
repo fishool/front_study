@@ -2,10 +2,12 @@
  * @file: 工具
  */
 import { vueMain } from '@/main'
-import util from '@/libs/commonutil';
+import Setting from '@/setting';
 
 let connectWebSocket = function (uid) {
-    let websocketPath = util.getAbsolutePath('/pcWebSocket/' + uid);
+    // websocket 地址配置
+    let websocketPath = Setting.websocketUrl + uid;
+
     websocketPath = websocketPath.replace('http://', 'ws://');
     let ws = new WebSocket(websocketPath);
 
