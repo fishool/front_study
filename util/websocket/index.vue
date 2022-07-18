@@ -43,7 +43,7 @@
         methods: {
             async init () {
                 this.isActiveNotice = false;
-                // 初始加载待办 通知消息
+                // 初始加载待办 通知消息 ,初始化页面数据
                 await this.abHttpUtil
                     .get('/oa/oAInstationMsg/getInstationMsg?type=1&pageNo=1&pageSize=5')
                     .then(res => {
