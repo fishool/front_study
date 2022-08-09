@@ -1,5 +1,5 @@
 /**
- * @file: 工具
+ * @file: 工具1
  */
 import { vueMain } from '@/main'
 import Setting from '@/setting';
